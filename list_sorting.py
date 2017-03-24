@@ -31,7 +31,7 @@ def sort_list(lst):
 
 def sort_string(scrambled_string):
     # Remove symbols
-    scrambled_string = re.sub("[@#$%&;^*~]", "", scrambled_string)
+    scrambled_string = re.sub("[^a-zA-Z\d\s\-]", "", scrambled_string)
 
     # Create dictionary storing indices (key) and type of element (word/integer)
     scrambled_list = scrambled_string.split()

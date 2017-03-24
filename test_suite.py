@@ -1,7 +1,7 @@
 from os import system
 from nose.tools import assert_equal
+from list_sorting import sort_list, sort_string
 from random import sample, uniform, randint, shuffle
-from sort_list import sort_list, sort_string
 
 
 def rand_word_selection(lst, n):
@@ -106,7 +106,7 @@ def shuffle_list(lst):
 
 
 def generate_test_strings(num_words):
-    # Import word data
+    # Import google word data
     with open("google-10000-english-no-swears.txt", "r+") as f:
         word_list = f.readlines()
 
@@ -139,8 +139,8 @@ def get_unscrambled_string(scrambled_string):
     with open("scrambled_string.dat", "w") as f:
         f.write(scrambled_string)
 
-    # Run sort_list.py to unscramble scrambled_string
-    system("python sort_list.py scrambled_string.dat unscrambled_string.dat")
+    # Run list_sorting.py to unscramble scrambled_string
+    system("python list_sorting.py scrambled_string.dat unscrambled_string.dat")
 
     # Read in unscrambled string
     with open("unscrambled_string.dat", "r+") as f:
@@ -154,7 +154,7 @@ def get_unscrambled_string(scrambled_string):
 
 def main():
 
-    # Run a tests on distinct methods and overall sorting algorithm involving many different strings
+    # Run tests on each method and overall sorting algorithm involving randomly generated strings of various sizes
     for sample_size in range(50, 550, 50):
         # Create a sorted string and also a scrambled version of it
         sorted_string, scrambled_string = generate_test_strings(sample_size)
