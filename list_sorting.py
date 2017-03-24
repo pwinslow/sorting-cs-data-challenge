@@ -1,5 +1,6 @@
 import sys
 import re
+from os import stat
 
 
 def sort_list(lst):
@@ -47,16 +48,22 @@ def main():
     # Read I/O file names from the cmd line
     input_file, output_file = sys.argv[1:]
 
-    # Read data from input file
-    with open(input_file, "r+") as f:
-        scrambled_string = f.readlines()
+    # Handle empty string edge case
+    if not stat(input_file).st_size:
+        # Write error message to file
+        with open(output_file, "w") as f:
+            f.write("Whoops! Looks like you passed an empty string, please check your input file and try again!")
+    else:
+        # Read data from input file
+        with open(input_file, "r+") as f:
+            scrambled_string = f.readlines()
 
-    # Remove symbols and sort string
-    sorted_string = sort_string(scrambled_string[0])
+        # Remove symbols and sort string
+        sorted_string = sort_string(scrambled_string[0])
 
-    # Write unscrambled string to file
-    with open(output_file, "w") as f:
-        f.write(sorted_string)
+        # Write unscrambled string to file
+        with open(output_file, "w") as f:
+            f.write(sorted_string)
 
 
 if __name__ == "__main__":

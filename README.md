@@ -51,3 +51,7 @@ To run the sorting algorithm, specify the file containing your scrambled string 
 The testing suite randomly generates strings of integers and words which have non-alpha-numeric symbols randomly inserted into them. It does this by leveraging a list of 10,000 english words (obtained from [here](https://github.com/first20hours/google-10000-english/blob/master/google-10000-english-no-swears.txt)) and pythons random library. Unit testing uses tools from pythons nose library. To run the testing suite, simply run
 
     python test_suite.py
+
+**Coding Style**:
+
+All python code is written to conform to PEP8 standards.

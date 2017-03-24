@@ -173,6 +173,12 @@ def main():
         # Compare sorted_string and unscrambled_string
         assert_equal(sorted_string, unscrambled_string, "Overall sorting algorithm failed!")
 
+    # Test empty string edge case
+    edgecase_result = get_unscrambled_string("")
+    assert_equal(edgecase_result,
+                 "Whoops! Looks like you passed an empty string, please check your input file and try again!",
+                 "Empty string edge case failed!")
+
     print "All tests passed!"
 
 
